@@ -10,5 +10,9 @@ $.ajax({
 	url: "/paises",
 	dataType: "json",
 }).done(function(data) {
-	console.log(data)
+	console.log(data.paises)
+	data.paises.forEach(function(element) {
+        let option = `<option value="${element.nombre}">${element.nombre}</option>`
+        $("#paises").append(option);
+    })
 })

@@ -3,6 +3,69 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-
+  form(action='')
+    .pais
+      label(for='') País de residencia
+      select(name='' id='paises')
+        option(value='') Elija una opción
+    .leng
+      label(for='') 1- ¿Lenguaje de programación preferido? 
+      label(for='')
+        input(type='radio' name='lenguaje' value='JavaScript')
+        | JavaScript
+      label(for='')
+        input(type='radio' name='lenguaje' value='Java')
+        | Java
+      label(for='')
+        input(type='radio' name='lenguaje' value='C#')
+        | C#
+    .nivel
+      label(for='') 2- ¿Nivel de conocimiento del lenguaje elegido? 
+      label(for='')
+        input(type='radio' name='nivel' value='basico')
+        | Básico
+      label(for='')
+        input(type='radio' name='nivel' value='intermedio')
+        | Intermedio
+      label(for='')
+        input(type='radio' name='nivel' value='experto')
+        | Experto
+    .sist
+      label(for='') 3- ¿Sistema operativo preferido? 
+      label(for='')
+        input(type='radio' name='sistema' value='Windows')
+        | Windows
+      label(for='')
+        input(type='radio' name='sistema' value='Linux')
+        | Linux
+      label(for='')
+        input(type='radio' name='sistema' value='Solaris')
+        | Solaris
+    .editor
+      label(for='') 4- ¿Editor de texto preferido? 
+      label(for='')
+        input(type='radio' name='editor' value='Sublime')
+        | Sublime Text
+      label(for='')
+        input(type='radio' name='editor' value='Visual')
+        | Visual Studio Code
+      label(for='')
+        input(type='radio' name='editor' value='Atom')
+        | Atom
+    .btn
+      input(type='button' value='Enviar')
+  table
+    tr
+      th País de residencia
+      th Lenguaje
+      th Nivel
+      th Sistema operativo
+      th Editor de texto
+    tr
+      td a
+      td b
+      td c
+      td d
+      td e
   script(src='https://code.jquery.com/jquery-3.3.1.min.js')
   script(src='javascripts/script.js')
