@@ -27,14 +27,21 @@ $('#enviar').on('click', function(){
 	let nivel = ($('input:radio[name=nivel]:checked').val());
 	let sistema = ($('input:radio[name=sistema]:checked').val());
 	let editor = ($('input:radio[name=editor]:checked').val());
-	console.log(pais+lenguaje+nivel+sistema+editor);
+	// console.log(pais+lenguaje+nivel+sistema+editor);
 
 	//respuesta.push(pais,lenguaje, nivel, sistema, editor);
 	//console.log(respuesta);
+	if (pais && lenguaje && nivel && sistema && editor) {
+		let fila = `<tr><td><input type="checkbox"></td> <td>${pais}</td> <td>${lenguaje}</td>
+					<td>${nivel}</td> <td>${sistema}</td> <td>${editor}</td> </tr>`;
 
-	let fila = `<tr> <input type="checkbox"> <td>${pais}</td> <td>${lenguaje}</td>
-				<td>${nivel}</td> <td>${sistema}</td> <td>${editor}</td> </tr>`;
+		$('#table').append(fila);
+		$("form")[0].reset();
+		$(".error").css("display", "none");
+	}
 
-	$('#table').append(fila);
+	else {
+		$(".error").text("Faltan datos").css("display", "block")
+	}
 })
 
