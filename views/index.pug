@@ -22,13 +22,13 @@ block content
     .nivel
       label(for='') 2- ¿Nivel de conocimiento del lenguaje elegido? 
       label(for='')
-        input(type='radio' name='nivel' value='basico')
+        input(type='radio' name='nivel' value='Básico')
         | Básico
       label(for='')
-        input(type='radio' name='nivel' value='intermedio')
+        input(type='radio' name='nivel' value='Intermedio')
         | Intermedio
       label(for='')
-        input(type='radio' name='nivel' value='experto')
+        input(type='radio' name='nivel' value='Experto')
         | Experto
     .sist
       label(for='') 3- ¿Sistema operativo preferido? 
@@ -44,16 +44,16 @@ block content
     .editor
       label(for='') 4- ¿Editor de texto preferido? 
       label(for='')
-        input(type='radio' name='editor' value='Sublime')
+        input(type='radio' name='editor' value='Sublime Text')
         | Sublime Text
       label(for='')
-        input(type='radio' name='editor' value='Visual')
+        input(type='radio' name='editor' value='Visual Studio Code')
         | Visual Studio Code
       label(for='')
         input(type='radio' name='editor' value='Atom')
         | Atom
     .btn
-      input(type='button' value='Enviar')
+      input#enviar(type='button' value='Enviar')
   table
     tr
       th País de residencia
