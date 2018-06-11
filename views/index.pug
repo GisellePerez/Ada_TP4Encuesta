@@ -6,53 +6,7 @@ block content
     .pais
       label(for='') País de residencia
       select(name='' id='paises')
-        option(value='') Elija una opción
-    .leng
-      label(for='') 1- ¿Lenguaje de programación preferido? 
-      label(for='javascript')
-        input(type='radio' name='lenguaje' value='JavaScript' id='javascript')
-        | JavaScript
-      label(for='java')
-        input(type='radio' name='lenguaje' value='Java' id='java')
-        | Java
-      label(for='c')
-        input(type='radio' name='lenguaje' value='C#' id='c')
-        | C#
-    .nivel
-      label(for='') 2- ¿Nivel de conocimiento del lenguaje elegido? 
-      label(for='basico')
-        input(type='radio' name='nivel' value='Básico' id='basico')
-        | Básico
-      label(for='intermedio')
-        input(type='radio' name='nivel' value='Intermedio' id='intermedio')
-        | Intermedio
-      label(for='experto')
-        input(type='radio' name='nivel' value='Experto' id='experto')
-        | Experto
-    .sist
-      label(for='') 3- ¿Sistema operativo preferido? 
-      label(for='windows')
-        input(type='radio' name='sistema' value='Windows' id='windows')
-        | Windows
-      label(for='linux')
-        input(type='radio' name='sistema' value='Linux' id='linux')
-        | Linux
-      label(for='solaris')
-        input(type='radio' name='sistema' value='Solaris' id='solaris')
-        | Solaris
-    .editor
-      label(for='') 4- ¿Editor de texto preferido? 
-      label(for='sublime')
-        input(type='radio' name='editor' value='Sublime Text' id='sublime')
-        | Sublime Text
-      label(for='visual')
-        input(type='radio' name='editor' value='Visual Studio Code' id='visual')
-        | Visual Studio Code
-      label(for='atom')
-        input(type='radio' name='editor' value='Atom' id='atom')
-        | Atom
-    .btn
-      input#enviar(type='button' value='Enviar')
+        option(value='') Elija una opción      
     .error(style="display:none")
   table#table
     tr
