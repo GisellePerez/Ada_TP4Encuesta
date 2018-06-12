@@ -37,6 +37,7 @@ $.ajax({
 		$('form').append(pregunta);
 	})
 	$('form').append($(`<div class="btn"><input id="enviar" type='button' value='Enviar'></div>`));
+	$('form').append($("<div class='error' style='display:none'></div>"));
 })
 
 	$(document).on('click', "#enviar" ,function(){
