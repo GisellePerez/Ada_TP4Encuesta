@@ -1,20 +1,23 @@
 extends layout
 
 block content
-  h1 Encuesta de tecnología
-  form(action='')
-    .pais
-      label(for='') País de residencia
-      select(name='' id='paises')
-        option(value='') Elija una opción
-  table#table
-    tr
-      th 
-        input(type='checkbox')
-      th País de residencia
-      th Lenguaje
-      th Nivel
-      th Sistema operativo
-      th Editor de texto
+  #main
+    #left
+      h1 Encuesta de tecnología
+      form(action='')
+        .pais
+          h3#labelPaises País de residencia
+          select(name='' id='paises')
+            option(value='') Elija una opción
+    #right        
+      table#table
+        tr
+          th 
+            input(type='checkbox')
+          th País de residencia
+          th Lenguaje
+          th Nivel
+          th Sistema operativo
+          th Editor de texto
   script(src='https://code.jquery.com/jquery-3.3.1.min.js')
   script(src='javascripts/script.js')
