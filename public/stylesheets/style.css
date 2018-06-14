@@ -87,3 +87,7 @@ table, th, td {
   margin: 3em;
   font-size: 12px;
 }
+#myChart{
+  width: 300px;
+  height: 300px;
+}

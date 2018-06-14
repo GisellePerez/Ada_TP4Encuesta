@@ -42,7 +42,7 @@ function mostrarRespuestas(respuesta) {
 let respuestas = (JSON.parse(localStorage.getItem("respuestas")) || []);
 //muestra las respuestas en la tabla
 if (respuestas.length > 0) {
-	respuestas.forEach(mostrarRespuestas)
+	respuestas.forEach(mostrarRespuestas);
 }
 
 $(document).on('click', "#enviar" ,function(){
@@ -63,6 +63,8 @@ $(document).on('click', "#enviar" ,function(){
 		}
 		respuestas.push(respuesta);
 		let id = respuestas.indexOf(respuesta);
+
+
 		//cuando ya la mandé al array de respuestas, creo un id con el índice
 		respuesta.id = id;
 		console.log(respuesta, id)
@@ -80,12 +82,53 @@ $(document).on('click', "#enviar" ,function(){
 })
 
 $(document).on('click', ".fas", function(){
-	// console.log($(this).parent); //NO :(
 	//saca la fila de la tabla
 	$(this).closest("tr").remove();
 	//saca la respuesta de localStorage y lo actualiza
 	let id = $(this).closest("tr").data("id");
 	respuestas.splice(id, 1);
-	localStorage.setItem("respuestas", JSON.stringify(respuestas));
+	localStorage.setItem("respuestas", JSON.stringify(respuestas));	
 });
 
+/*********************************************************** */
+console.log('lalalalala'+respuestas.respuesta.pais);
+
+
+		
+/*********************************************************************************/		
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+	type: 'pie',
+	data: {
+		labels: ["País", "Lenguaje", "Nivel", "OS", "Editor de texto"],
+		datasets: [{
+			label: '# of Votes',
+			data: [pais,lenguaje,nivel,sistema,editor],
+			backgroundColor: [
+				'rgba(255, 99, 132)',
+				'rgba(54, 162, 235)',
+				'rgba(255, 206, 86)',
+				'rgba(75, 192, 192)',
+				'rgba(153, 102, 255)',
+				'rgba(255, 159, 64)'
+			],
+			borderColor: [
+				'rgba(255,99,132,1)',
+				'rgba(54, 162, 235, 1)',
+				'rgba(255, 206, 86, 1)',
+				'rgba(75, 192, 192, 1)',
+				'rgba(153, 102, 255, 1)',
+				'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 1
+		}]
+	},
+	options: {
+		scales: {
+		}
+	}
+});
+/*********************************************************************************/	
+
+
+		/*********************************************************** */
