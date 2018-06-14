@@ -55,8 +55,8 @@ $.ajax({
 		}
 
 		$('.fas').on('click', function(){
-			console.log($(this).parent); //NO :( 
-			//this.parents.remove();
+			// console.log($(this).parent); //NO :( 
+			$(this).closest("tr").remove();
 		});
 	})
 
