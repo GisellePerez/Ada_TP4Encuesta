@@ -36,6 +36,7 @@ $.ajax({
 function mostrarRespuestas(respuesta) {
 		let fila = `<tr data-id="${respuesta.id}"><td><input type="checkbox"></td> <td>${respuesta.pais}</td> <td>${respuesta.lenguajes}</td><td>${respuesta.nivel}</td> <td>${respuesta.sistema}</td> <td>${respuesta.editor}</td><td><i class="fas fa-trash"></i></td> </tr>`;
 		$('#table').append(fila);
+		piePaises();
 }
 
 //trae las respuestas de localStorage o crea el array para las futuras respuestas
@@ -74,6 +75,8 @@ $(document).on('click', "#enviar" ,function(){
 		mostrarRespuestas(respuesta);
 		$("form")[0].reset();
 		$(".error").css("display", "none");
+
+		//pie(); //aca solo muestra con el click de enviar
 	}
 
 	else {
@@ -91,44 +94,92 @@ $(document).on('click', ".fas", function(){
 });
 
 /*********************************************************** */
-console.log('lalalalala'+respuestas.respuesta.pais);
-
-
-		
-/*********************************************************************************/		
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-	type: 'pie',
-	data: {
-		labels: ["País", "Lenguaje", "Nivel", "OS", "Editor de texto"],
-		datasets: [{
-			label: '# of Votes',
-			data: [pais,lenguaje,nivel,sistema,editor],
-			backgroundColor: [
-				'rgba(255, 99, 132)',
-				'rgba(54, 162, 235)',
-				'rgba(255, 206, 86)',
-				'rgba(75, 192, 192)',
-				'rgba(153, 102, 255)',
-				'rgba(255, 159, 64)'
-			],
-			borderColor: [
-				'rgba(255,99,132,1)',
-				'rgba(54, 162, 235, 1)',
-				'rgba(255, 206, 86, 1)',
-				'rgba(75, 192, 192, 1)',
-				'rgba(153, 102, 255, 1)',
-				'rgba(255, 159, 64, 1)'
-			],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		scales: {
+function piePaises(){
+	let resp = JSON.parse(localStorage.getItem("respuestas"));
+	let arg = 0;
+	let bol = 0;
+	let bra = 0;
+	let chi = 0;
+	let par = 0;
+	let uru = 0;
+	console.log(resp);
+	for (var i = 0; i < resp.length; i++) {
+	var pais = resp[i].pais;	
+		if (pais == "Argentina") {
+			arg++;
+		} else if (pais == "Bolivia") {
+			bol++;
+		} else if (pais == "Brasil") {
+			bra++;
+		} else if (pais == "Chile") {
+			chi++;
+		} else if (pais == "Paraguay") {
+			par++;
+		} else if (pais == "Uruguay") {
+			uru++;
 		}
 	}
-});
-/*********************************************************************************/	
+			
+	var ctx = document.getElementById("myChart").getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'doughnut',
+		data: {
+			labels: ["Argentina", "Bolivia", "Brasil", "Chile", "Paraguay", "Uruguay"],
+			datasets: [{
+				label: '# of Votes',
+				data: [arg,bol,bra,chi,par,uru],
+				backgroundColor: [
+					'rgba(255, 99, 132)',
+					'rgba(54, 162, 235)',
+					'rgba(255, 206, 86)',
+					'rgba(75, 192, 192)',
+					'rgba(153, 102, 255)',
+					'rgba(255, 159, 64)',
+					'rgba(255, 10, 64)'
+				],
+				borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255, 10, 64)'
+				],
+				borderWidth: 1
+			}]
+		},
+		data: {
+			labels: ["Argentina", "Bolivia", "Brasil", "Chile", "Paraguay", "Uruguay"],
+			datasets: [{
+				label: '# of Votes',
+				data: [arg,bol,bra,chi,par,uru],
+				backgroundColor: [
+					'rgba(255, 99, 132)',
+					'rgba(54, 162, 235)',
+					'rgba(255, 206, 86)',
+					'rgba(75, 192, 192)',
+					'rgba(153, 102, 255)',
+					'rgba(255, 159, 64)',
+					'rgba(255, 10, 64)'
+				],
+				borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255, 10, 64)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+			}
+		}
+	});
+}
 
-
-		/*********************************************************** */
+//localStorage.clear();
