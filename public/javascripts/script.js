@@ -9,7 +9,6 @@ $.ajax({
 	url: "/paises",
 	dataType: "json",
 }).done(function(data) {
-	console.log(data.paises)
 	data.paises.forEach(function(element) {
         let option = `<option value="${element.nombre}">${element.nombre}</option>`
         $("#paises").append(option);
@@ -20,7 +19,6 @@ $.ajax({
 	url: "/preguntas",
 	dataType: "json",
 }).done(function(data) {
-	console.log(data.preguntas)
 	data.preguntas.forEach(function(element) {
 		let pregunta = $(`<div id="${element.name}"><h3>${element.pregunta}</h3></div>`);
 		element.opciones.forEach(function(elem) {
@@ -85,12 +83,12 @@ $(document).on('click', "#enviar" ,function(){
 })
 
 $(document).on('click', ".fas", function(){
-	//saca la fila de la tabla
-	$(this).closest("tr").remove();
 	//saca la respuesta de localStorage y lo actualiza
 	let id = $(this).closest("tr").data("id");
 	respuestas.splice(id, 1);
-	localStorage.setItem("respuestas", JSON.stringify(respuestas));	
+	localStorage.setItem("respuestas", JSON.stringify(respuestas));
+	//saca la fila de la tabla
+	$(this).closest("tr").remove();
 });
 
 /*********************************************************** */
