@@ -150,7 +150,8 @@ function piePaises(){
 			}]
 		},
 		data: {
-			labels: ["Argentina", "Bolivia", "Brasil", "Chile", "Paraguay", "Uruguay"],
+			labels:["Argentina", "Bolivia", "Brasil", "Chile", "Paraguay", "Uruguay"],
+
 			datasets: [{
 				label: '# of Votes',
 				data: [arg,bol,bra,chi,par,uru],
@@ -176,6 +177,7 @@ function piePaises(){
 			}]
 		},
 		options: {
+			responsive: true,
 			scales: {
 			}
 		}
